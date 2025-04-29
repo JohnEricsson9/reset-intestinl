@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Intestinal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1d1d2e, #2b1e3f);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6a0dad;
+            padding: 1rem;
+            text-align: center;
+        }
+        header img {
+            max-width: 150px;
+        }
+        .modules {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+        .module {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-right: 1rem;
+            min-width: 200px;
+            flex: 0 0 auto;
+            cursor: pointer;
+        }
+        .content {
+            padding: 1rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .aula {
+            margin-bottom: 1rem;
+        }
+        input[type="file"] {
+            margin-top: 0.5rem;
+        }
+        iframe, video {
+            width: 100%;
+            height: 400px;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Reset Intestinal">
+</header>
+
+<div class="modules" id="modules">
+    <!-- Módulos serão gerados aqui -->
+</div>
+
+<div class="content" id="content">
+    <!-- Conteúdo das aulas -->
+</div>
+
+<script>
+    const modules = ["Módulo 1", "Módulo 2"];
+    const aulasPorModulo = 5;
+
+    const modulesContainer = document.getElementById('modules');
+    const contentContainer = document.getElementById('content');
+
+    modules.forEach((modulo, modIndex) => {
+        const div = document.createElement('div');
+        div.className = 'module';
+        div.textContent = modulo;
+        div.onclick = () => renderModulo(modIndex + 1);
+        modulesContainer.appendChild(div);
+    });
+
+    function renderModulo(moduloNum) {
+        contentContainer.innerHTML = `<h2>Módulo ${moduloNum}</h2>`;
+        for (let i = 1; i <= aulasPorModulo; i++) {
+            const aulaDiv = document.createElement('div');
+            aulaDiv.className = 'aula';
+            aulaDiv.innerHTML = `
+                <label>Aula ${i} - Nome editável: <input type="text" value="Aula ${i}"></label><br>
+                <input type="file" accept="application/pdf,video/*" onchange="handleUpload(this, 'preview${moduloNum}_${i}')"><br>
+                <div id="preview${moduloNum}_${i}"></div>
+            `;
+            contentContainer.appendChild(aulaDiv);
+        }
+    }
+
+    function handleUpload(input, previewId) {
+        const file = input.files[0];
+        const preview = document.getElementById(previewId);
+        preview.innerHTML = "";
+
+        if (file) {
+            const fileURL = URL.createObjectURL(file);
+            if (file.type.includes("pdf")) {
+                const iframe = document.createElement("iframe");
+                iframe.src = fileURL;
+                iframe.setAttribute("type", "application/pdf");
+                preview.appendChild(iframe);
+            } else if (file.type.includes("video")) {
+                const video = document.createElement("video");
+                video.controls = true;
+                video.src = fileURL;
+                preview.appendChild(video);
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1f1f1f;
+    color: white;
+}
+header {
+    text-align: center;
+    background-color: #282828;
+    padding: 20px;
+}
+.logo {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+.modules {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+.module {
+    background-color: #7d2ae8;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#content.hidden {
+    display: none;
+}
+#content {
+    padding: 20px;
+}
+.playlist {
+    float: left;
+    width: 30%;
+    background-color: #333;
+    padding: 10px;
+}
+.lesson {
+    margin-bottom: 10px;
+    background-color: #5f1bb6;
+    padding: 10px;
+    cursor: pointer;
+}
+#lesson-content {
+    float: right;
+    width: 65%;
+    background-color: #444;
+    padding: 20px;
+    min-height: 200px;
+}
+footer {
+    clear: both;
+    padding: 10px;
+    background-color: #222;
+    text-align: center;
+}
