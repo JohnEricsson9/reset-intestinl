@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Intestinal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo/logo.png" alt="Logo" class="logo">
+        <h1>Reset Intestinal</h1>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <h3>Módulos</h3>
+            <ul>
+                <li onclick="showContent('modulo1')">Módulo 1</li>
+                <li onclick="showContent('modulo2')">Módulo 2</li>
+                <li onclick="showContent('modulo3')">Módulo 3</li>
+            </ul>
+        </aside>
+        <section class="content">
+            <div id="modulo1" class="modulo-content">Conteúdo do Módulo 1 aqui...</div>
+            <div id="modulo2" class="modulo-content hidden">Conteúdo do Módulo 2 aqui...</div>
+            <div id="modulo3" class="modulo-content hidden">Conteúdo do Módulo 3 aqui...</div>
+        </section>
+    </main>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
