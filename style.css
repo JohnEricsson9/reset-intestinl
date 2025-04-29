@@ -1,0 +1,35 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: white;
+}
+.hero {
+  background: linear-gradient(to right, #1a1a1a, #004080);
+  padding: 2em;
+  text-align: center;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 2em;
+}
+.card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 1em;
+  text-align: center;
+  width: 200px;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
